@@ -13,9 +13,8 @@ template<typename T> struct RcInner {
 template<typename T> class Rc {
 	private:
 		RcInner<T>* inner;
-		bool is_strong;
 
-		Rc(RcInner<T>* inner, bool strong);
+		Rc(RcInner<T>* inner);
 
 	public:
 		Rc(T);
@@ -23,11 +22,8 @@ template<typename T> class Rc {
 
 		~Rc();
 
-		T* operator*();
-
-		Rc reference();
-		Rc weak_reference();
-		void drop_reference();
+		T* operator*(); // weak reference
+		Rc operator&(); // reference
 
 		intptr_t get_count();
 };

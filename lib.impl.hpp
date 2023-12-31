@@ -33,14 +33,14 @@ template<typename T> Rc<T>::~Rc() {
 #ifdef DEBUG
 		printf("%p: ref decreased to %li\n", this->inner, this->inner->count);
 #endif
-	}
 
-	if (this->is_strong && this->inner->count <= 0) {
-		delete this->inner;
+		if (this->inner->count <= 0) {
+			delete this->inner;
 
 #ifdef DEBUG
-		printf("%p: rc freed\n", this->inner);
+			printf("%p: rc freed\n", this->inner);
 #endif
+		}
 	}
 }
 

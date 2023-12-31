@@ -34,14 +34,6 @@ void walk(Rc<LinkedList> list) {
 	}
 }
 
-void drop(Rc<LinkedList> list) {
-	if ((*list)->next.has_value()) {
-		drop((*list)->next->reference());
-	}
-
-	printf("Dropping %i\n", (*list)->number);
-}
-
 Rc<LinkedList> construct() {
 	Rc ll_0 = Rc(LinkedList {});
 	Rc ll_1 = Rc(LinkedList {});
@@ -70,9 +62,6 @@ int main() {
 	Rc list = construct();
 
 	walk(list.reference());
-
-	// done with the list
-	drop(list.reference());
 
 	print_obj(list);
 

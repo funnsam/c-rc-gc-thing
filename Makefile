@@ -1,5 +1,5 @@
 CPPCOMP=g++
-CPPFLAGS=-c -O0 -g -Wall -Wextra -std=c++23 #-DDEBUG
+CPPFLAGS=-c -O0 -g -Wall -Wextra -std=c++23 -DDEBUG
 LINKER=g++
 LDFLAGS=-O0 -g
 
